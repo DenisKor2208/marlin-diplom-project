@@ -1,3 +1,10 @@
+<?php
+
+require_once 'init.php';
+
+$current_user = new User;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,18 +28,27 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Главная</a>
+            <a class="nav-link" href="index.php">Главная</a>
           </li>
         </ul>
 
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="#" class="nav-link">Войти</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Регистрация</a>
-          </li>
-        </ul>
+          <?php if($current_user->isLoggedIn()) :?>
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a href="logout.php" class="nav-link">Выйти</a>
+                  </li>
+              </ul>
+          <?php else :?>
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a href="login.php" class="nav-link">Войти</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="register.php" class="nav-link">Регистрация</a>
+                  </li>
+              </ul>
+          <?php endif; ?>
+
       </div>
     </nav>
 
