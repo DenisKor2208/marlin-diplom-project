@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="3b1f5c00-6ed9-4be6-9fce-91e9170bb3ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changepassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/changepassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/user_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +25,7 @@
   </component>
   <component name="PhpServers">
     <servers>
-      <server host="marlin-diplom-project" id="cbe2fd48-e4f2-432e-9321-c3a695ad8b5c" name="marlin-diplom-project" />
+      <server host="localhost" id="cbe2fd48-e4f2-432e-9321-c3a695ad8b5c" name="marlin-diplom-project" />
       <server host="127.0.0.1" id="a51a4cac-e46e-4385-a570-a29c7646c60d" name="127.0.0.1" />
     </servers>
   </component>
@@ -33,14 +36,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Edu-marlin-two" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Edu-marlin-oc-oop" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -57,7 +61,11 @@
       <option name="presentableId" value="Default" />
       <updated>1608195336929</updated>
       <workItem from="1608195338139" duration="13690000" />
-      <workItem from="1608272068860" duration="6095000" />
+      <workItem from="1608272068860" duration="6173000" />
+      <workItem from="1608293793618" duration="5576000" />
+      <workItem from="1608362387308" duration="6576000" />
+      <workItem from="1608474643391" duration="5591000" />
+      <workItem from="1608526546255" duration="16632000" />
     </task>
     <servers />
   </component>

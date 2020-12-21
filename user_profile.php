@@ -2,6 +2,12 @@
 
 require_once 'init.php';
 
+if (is_numeric($_GET['id'])) {
+    $viewed_user = new User($_GET['id']);
+} else {
+    Redirect::to('index.php');
+}
+
 $current_user = new User;
 
 ?>
@@ -35,6 +41,9 @@ $current_user = new User;
           <?php if($current_user->isLoggedIn()) :?>
               <ul class="navbar-nav">
                   <li class="nav-item">
+                      <a href="profile.php" class="nav-link">Профиль</a>
+                  </li>
+                  <li class="nav-item">
                       <a href="logout.php" class="nav-link">Выйти</a>
                   </li>
               </ul>
@@ -66,10 +75,10 @@ $current_user = new User;
 
            <tbody>
              <tr>
-               <td>2</td>
-               <td>Джон</td>
-               <td>25/02/2025</td>
-               <td>Привет! Я новый пользователь вашего проекта, хочу перейти на уровень 3!</td>
+               <td><?php echo $viewed_user->data()->id; ?></td>
+               <td><?php echo $viewed_user->data()->username; ?></td>
+               <td><?php echo $viewed_user->data()->data_register_user; ?></td>
+               <td><?php echo $viewed_user->data()->status_user; ?></td>
              </tr>
            </tbody>
          </table>

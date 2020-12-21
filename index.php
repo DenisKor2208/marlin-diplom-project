@@ -1,8 +1,9 @@
 <?php
 require_once 'init.php';
 
-$users = Database::getInstance()->query("SELECT * FROM users");
+$users = Database::getInstance()->query("SELECT * FROM users", [], true);
 $current_user = new User;
+
 /*
 foreach ($users->results() as $user) {
     echo $user->id . '<br>';
@@ -40,6 +41,9 @@ foreach ($users->results() as $user) {
         </ul>
         <?php if($current_user->isLoggedIn()) :?>
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="profile.php" class="nav-link">Профиль</a>
+                </li>
                 <li class="nav-item">
                     <a href="logout.php" class="nav-link">Выйти</a>
                 </li>
@@ -85,10 +89,10 @@ foreach ($users->results() as $user) {
           </thead>
 
           <tbody>
-          <?php foreach ($users->results() as $user): ?>
+          <?php foreach ($users->resultsAll() as $user): ?>
             <tr>
               <td><?php echo $user->id; ?></td>
-              <td><a href="user_profile.php"><?php echo $user->username; ?></a></td>
+              <td><a href="user_profile.php?id=<?php echo $user->id; ?>"><?php echo $user->username; ?></a></td>
               <td><?php echo $user->email; ?></td>
               <td><?php echo $user->data_register_user; ?></td>
             </tr>

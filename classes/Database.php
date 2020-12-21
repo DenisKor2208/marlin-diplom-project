@@ -6,7 +6,7 @@
 class Database {
 
     private static $instance = null; //статичное приватное свойство
-    private $pdo, $query, $error = false, $results, $count;
+    private $pdo, $query, $error = false, $results, $count, $resultsAll, $countAll;
 
     private function __construct() { //так как этот метод/конструктор приватный, то доступ к нему возможен только в этом классе
         try {
@@ -23,7 +23,7 @@ class Database {
         return self::$instance;
     }
 
-    public function query($sql, $params = []) {
+    public function query($sql, $params = [], $requireAll = false) {
 
         $this->error = false;
         $this->query = $this->pdo->prepare($sql);
@@ -38,9 +38,14 @@ class Database {
 
         if (!$this->query->execute()) {
             $this->error = true;
-        }else{
-            $this->results = $this->query->fetchAll(PDO::FETCH_OBJ); //FETCH_OBJ потому что мы используем ООП
-            $this->count = $this->query->rowCount();
+        }else {
+            if ($requireAll) {
+                $this->resultsAll = $this->query->fetchAll(PDO::FETCH_OBJ); //FETCH_OBJ потому что мы используем ООП
+                $this->countAll = $this->query->rowCount();
+            } else {
+                $this->results = $this->query->fetchAll(PDO::FETCH_OBJ); //FETCH_OBJ потому что мы используем ООП
+                $this->count = $this->query->rowCount();
+            }
         }
 
         return $this;
@@ -52,6 +57,10 @@ class Database {
 
     public function results() { //(getter)возвращаем результаты из переменной $results так как свойство private
         return $this->results;
+    }
+
+    public function resultsAll() { //(getter)возвращаем результаты из переменной $results так как свойство private
+        return $this->resultsAll;
     }
 
     public function count() { //(getter)возвращаем кол-во затронутых в последнем запросе записей(записей которые мы получили в последнем запросе) так как свойство private

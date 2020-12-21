@@ -112,4 +112,15 @@ class User { //для регистрации пользователя
         }
         return false;
     }
+
+    public function deleteUser($value_id = '') {
+
+        if (!empty($value_id) && $value_id == $this->data()->id) { //если переданный id не пустой и равен id текущего залогиненного пользователя
+            $this->logout();
+            $this->db->delete('users', ['id', '=', $this->data()->id]);
+        } else {
+            $this->db->delete('user_sessions', ['user_id', '=', $value_id]);
+            $this->db->delete('users', ['id', '=', $value_id]);
+        }
+    }
 }
