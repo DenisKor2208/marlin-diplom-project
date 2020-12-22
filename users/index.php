@@ -69,6 +69,10 @@ $current_user = new User;
               if (Session::exists('alert-info')) {
               echo '<div class="alert alert-info">' . Session::flash('alert-info') . '</div>';
               }
+
+          if (Session::exists('alert-success')) {
+              echo '<div class="alert alert-success">' . Session::flash('alert-success') . '</div>';
+          }
           ?>
         <table class="table">
           <thead>
@@ -90,9 +94,9 @@ $current_user = new User;
                 <?php
                 $viewed_user = new User($user->id);
                 if ($viewed_user->hasPermissions('admin')) { //если роль админ, то выведется сообщение ниже
-              	    echo "<a href='#' class='btn btn-danger'>Разжаловать</a>";
+              	    echo "<a href=/changePermissions.php?id=" . $user->id . "&permission=standart class='btn btn-danger'>Разжаловать</a>";
                 } else {
-                    echo "<a href='#' class='btn btn-success'>Назначить администратором</a>";
+                    echo "<a href=/changePermissions.php?id=" . $user->id . "&permission=admin class='btn btn-success'>Назначить администратором</a>";
                 }
                 ?>
                 <a href="/user_profile.php?id=<?php echo $user->id; ?>" class="btn btn-info">Посмотреть</a>

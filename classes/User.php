@@ -97,15 +97,32 @@ class User { //для регистрации пользователя
         $this->db->update('users', $id, $fields);
     }
 
-    public function hasPermissions($key = null) { //работа с ролями и правами
+    public function hasPermissions($key = null)  { //работа с ролями и правами
         if ($key) { //если $key имеет в себе значение
-            $group = $this->db->get('groups_users', ['id', '=', $this->data()->group_id]); //проверяем имеется ли в таблице group в поле id значение group_id текущего пользователя из таблицы users и выдергиваем найденную строчку
+            $group = $this->db->get('groups_users', ['id', '=', $this->data()->group_id]); //проверяем имеется ли в таблице groups_users в поле id значение group_id текущего пользователя из таблицы users и выдергиваем найденную строчку
 
-            if ($group->count()) { //проверяем было ли найдено что либо в таблице group
-                $permissions = $group->first()->permissions; //выхватываем из найденной строчки значение поля permissions из таблицы groups
+            if ($group->count()) { //проверяем было ли найдено что либо в таблице groups_users
+                $permissions = $group->first()->permissions; //выхватываем из найденной строчки значение поля permissions из таблицы groups_users
                 $permissions = json_decode($permissions, true); //декодируем данные json в ассоциативный массив
 
                 if ($permissions[$key]) { //если переданная нами роль найдена в поле permissions, то возвращаем true
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public function changePermissions($id = null, $key = null){
+        if ($key) { //если $key имеет в себе значение
+            $group_users = $this->db->query("SELECT * FROM groups_users", [], true);
+
+            foreach ($group_users->resultsAll() as $group_user) {
+
+                $permission = json_decode($group_user->permissions, true);
+
+                if ($permission[$key]) {
+                    $this->update(['group_id' => $group_user->id], $id);
                     return true;
                 }
             }
