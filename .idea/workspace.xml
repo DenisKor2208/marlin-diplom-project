@@ -3,20 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3b1f5c00-6ed9-4be6-9fce-91e9170bb3ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changePermissions.php" beforeDir="false" afterPath="$PROJECT_DIR$/users/changePermissions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changepassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/changepassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Validate.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Validate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu_marlin.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/init.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/user_profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/users/delete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/users/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/users/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +65,7 @@
       <workItem from="1608614289820" duration="405000" />
       <workItem from="1608620538881" duration="3614000" />
       <workItem from="1608628892529" duration="8710000" />
-      <workItem from="1608796929374" duration="12174000" />
+      <workItem from="1608796929374" duration="13322000" />
     </task>
     <servers />
   </component>

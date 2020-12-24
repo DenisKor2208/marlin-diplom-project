@@ -1,6 +1,12 @@
 <?php
 require_once 'init.php';
 
+if (Session::exists(Config::get('session.user_session'))){
+    Redirect::to('index.php');
+}
+
+//vardump(!Session::exists(Config::get('session.user_session')));
+
 if (Input::exists()){
     if (Token::check(Input::get('token'))) {
         $validate = new Validate();
