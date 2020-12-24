@@ -4,13 +4,6 @@ require_once 'init.php';
 $users = Database::getInstance()->query("SELECT * FROM users", [], true);
 $current_user = new User;
 
-/*
-foreach ($users->results() as $user) {
-    echo $user->id . '<br>';
-    echo $user->username . '<br>';
-    echo $user->email . '<br>';
-    echo $user->data_register_user . '<br>';
-}*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,6 +70,11 @@ foreach ($users->results() as $user) {
 
     <div class="row">
       <div class="col-md-12">
+          <?php
+            if (Session::exists('success')) {
+                echo '<div class="alert alert-success">' . Session::flash('success') . '</div>';
+            }
+          ?>
         <h1>Пользователи</h1>
         <table class="table">
           <thead>
@@ -87,7 +85,6 @@ foreach ($users->results() as $user) {
               <th>Дата</th>
             </tr>
           </thead>
-
           <tbody>
           <?php foreach ($users->resultsAll() as $user): ?>
             <tr>

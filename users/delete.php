@@ -1,7 +1,11 @@
 <?php
-
 require_once '../init.php';
+
 $current_user = new User();
+
+if (!$current_user->hasPermissions('admin')) {
+    Redirect::to('../index.php');
+}
 
 if (Input::exists('get')) {
     if (is_numeric($_GET['id'])) {

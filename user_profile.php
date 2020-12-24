@@ -60,7 +60,6 @@ $current_user = new User;
 
       </div>
     </nav>
-
    <div class="container">
      <div class="row">
        <div class="col-md-12">
@@ -72,7 +71,6 @@ $current_user = new User;
              <th>Дата регистрации</th>
              <th>Статус</th>
            </thead>
-
            <tbody>
              <tr>
                <td><?php echo $viewed_user->data()->id; ?></td>
@@ -82,8 +80,6 @@ $current_user = new User;
              </tr>
            </tbody>
          </table>
-
-
        </div>
      </div>
    </div>

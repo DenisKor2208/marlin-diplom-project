@@ -18,22 +18,22 @@ class Validate {
                 $value = $source[$item]; //$value = $_POST['username'] //получаем значение input из формы
 
                 if ($rule == 'required' && empty($value)) { // если стоит правило 'required' и значение пустое
-                    $this->addError("{$item} is required"); // то выводим ошибку
+                    $this->addError("{$item} является обязательным!"); // то выводим ошибку
                 } else if (!empty($value)) {
                     switch ($rule) { // в первой итерации $rule = 'required'
                         case 'min':
                             if (strlen($value) < $rule_value) { //strlen($value) - кол-во символов в значении $value
-                                $this->addError("{$item} must be a minimum of {$rule_value} characters.");
+                                $this->addError("{$item} должен состоять минимум из {$rule_value} символов.");
                             }
                         break;
                         case 'max':
                             if (strlen($value) > $rule_value) {
-                                $this->addError("{$item} must be a maximum of {$rule_value} characters.");
+                                $this->addError("{$item} должен состоять максимум из {$rule_value} символов.");
                             }
                         break;
                         case 'matches':
                             if ($value != $source[$rule_value]) { // если $value (значение 'password_again' из массива $_POST) не равняется $rule_value(значение поля 'password' из массива $_POST)
-                                $this->addError("{$rule_value} must match {$item}"); // то выводим ошибку
+                                $this->addError("{$rule_value} должен совпадать с {$item}"); // то выводим ошибку
                             }
                         break;
                         case 'unique':
@@ -44,7 +44,7 @@ class Validate {
                         break;
                         case 'email':
                             if (!filter_var($value, FILTER_VALIDATE_EMAIL)) { //если не соответствует правилу валидации и возвращает false, до добавляем ошибку
-                                $this->addError("{$item} is not an email.");
+                                $this->addError("{$item} не является электронной почтой.");
                             }
                         break;
                     }

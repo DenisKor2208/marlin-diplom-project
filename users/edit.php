@@ -9,9 +9,14 @@ if (is_numeric($_GET['id'])) {
 
 $current_user = new User;
 
+if (!$current_user->hasPermissions('admin')) {
+    Redirect::to('../index.php');
+}
+
 $validate = new Validate();
 $validate->check($_POST, [ //проверяем глобальный массив POST
-    'username' => ['required' => true, 'min' => 2] //username должен быть обязательным для заполнения и минимум 2 символа в длинну
+    'username' => ['required' => true, 'min' => 2], //username должен быть обязательным для заполнения и минимум 2 символа в длинну
+    'status_user' => ['required' => true, 'min' => 1]
 ]);
 
 if (Input::exists()) {
@@ -21,11 +26,7 @@ if (Input::exists()) {
             Session::flash('alert-success', 'Профиль обновлен');
             Redirect::to("edit.php?id=" . $viewed_user->data()->id);
             die();
-        } /*else {
-            foreach ($validate->errors() as $error) {
-                echo $error . '<br>';
-            }
-        }*/
+        }
     }
 }
 ?>
@@ -90,14 +91,6 @@ if (Input::exists()) {
      <div class="row">
        <div class="col-md-8">
          <h1>Профиль пользователя - <?php echo $viewed_user->data()->username; ?></h1>
-
-<!--         <div class="alert alert-success">Профиль обновлен</div>-->
-<!--         -->
-<!--         <div class="alert alert-danger">-->
-<!--           <ul>-->
-<!--             <li>Ошибка валидации</li>-->
-<!--           </ul>-->
-<!--         </div>-->
 
            <?php
            if (Session::exists('alert-success')) {

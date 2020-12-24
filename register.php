@@ -20,7 +20,7 @@ if (Input::exists()) { // exists - проверка была ли отправл
             ],
             'password' => [
                 'required' => true,
-                'min' => 3
+                'min' => 6
             ],
             'password_again' => [
                 'required' => true,
@@ -43,15 +43,11 @@ if (Input::exists()) { // exists - проверка была ли отправл
                     ]);
 
                     Session::flash('success', 'Регистрация прошла успешно!'); //записываем значение(2 аргумент) в ключ сессии(1 аргумент)
-                    //Redirect::to('index.php');
+                    Redirect::to('login.php');
                 } else {
                     Session::flash('alert-info', 'Необходимо согласие с условиями!');
                 }
-            } /*else {
-            foreach ($validation->errors() as $error) {
-                echo $error . "<br>";
             }
-        }*/
     }
 }
 
@@ -74,39 +70,19 @@ if (Input::exists()) { // exists - проверка была ли отправл
     <form action="" method="post" class="form-signin">
         <a href="index.php"><img class="mb-4" src="images/apple-touch-icon.png" alt="" width="72" height="72"></a>
     	  <h1 class="h3 mb-3 font-weight-normal">Регистрация</h1>
-<!--
-        <div class="alert alert-danger">
-          <ul>
-            <li>Ошибка валидации 1</li>
-            <li>Ошибка валидации 2</li>
-            <li>Ошибка валидации 3</li>
-          </ul>
-        </div>
 
-        <div class="alert alert-success">
-          Успешный успех
-        </div>
-
-        <div class="alert alert-info">
-          Информация
-        </div>
--->
         <?php
-            if (Input::exists()) {
-                if (Session::exists('success')) {
-                    echo '<div class="alert alert-success">' . Session::flash('success') . '</div>';
-                }
+        if (Session::exists('alert-info')) {
+            echo '<div class="alert alert-info">' . Session::flash('alert-info') . '</div>';
+        }
 
+            if (Input::exists()) {
                 if (!$validation->passed()) {
                     echo '<div class="alert alert-danger"><ul>';
                     foreach ($validation->errors() as $error) {
                         echo '<li>' . $error . '</li>';
                     }
                     echo '</ul></div>';
-                }
-
-                if (Session::exists('alert-info')) {
-                    echo '<div class="alert alert-info">' . Session::flash('alert-info') . '</div>';
                 }
             }
         ?>

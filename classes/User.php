@@ -114,13 +114,10 @@ class User { //для регистрации пользователя
     }
 
     public function changePermissions($id = null, $key = null){
-        if ($key) { //если $key имеет в себе значение
+        if ($id && $key) {
             $group_users = $this->db->query("SELECT * FROM groups_users", [], true);
-
             foreach ($group_users->resultsAll() as $group_user) {
-
                 $permission = json_decode($group_user->permissions, true);
-
                 if ($permission[$key]) {
                     $this->update(['group_id' => $group_user->id], $id);
                     return true;

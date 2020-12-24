@@ -23,15 +23,13 @@ if (Input::exists()){
             $login = $user->login(Input::get('email'), Input::get('password'), $remember);
 
             if ($login) {
+                Session::flash('success', 'Вход был успешно выполнен');
                 Redirect::to("index.php");
+                die();
             } else {
                 Session::flash('alert-info', 'Логин или пароль неверны!');
             }
-        } /*else {
-            foreach ($validate->errors() as $error) {
-                echo $error . '<br>';
-            }
-        }*/
+        }
     }
 }
 ?>
@@ -41,7 +39,7 @@ if (Input::exists()){
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Register</title>
+    <title>Login</title>
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <!-- Bootstrap core CSS -->
@@ -55,37 +53,26 @@ if (Input::exists()){
         <a href="index.php"><img class="mb-4" src="images/apple-touch-icon.png" alt="" width="72" height="72"></a>
     	  <h1 class="h3 mb-3 font-weight-normal">Авторизация</h1>
 
-<!--
-        <div class="alert alert-danger">
-          <ul>
-            <li>Ошибка валидации 1</li>
-            <li>Ошибка валидации 2</li>
-            <li>Ошибка валидации 3</li>
-          </ul>
-        </div>
-
-        <div class="alert alert-info">
-          Логин или пароль неверны
-        </div>
--->
         <?php
-            if (Input::exists()) {
-
-                if (Session::exists('alert-info')) {
-                    echo '<div class="alert alert-info">' . Session::flash('alert-info') . '</div>';
-                }
-
-                if (!$validate->passed()) {
-                    echo '<div class="alert alert-danger"><ul>';
-                    foreach ($validate->errors() as $error) {
-                        echo '<li>' . $error . '</li>';
-                    }
-                    echo '</ul></div>';
-                }
-
+            if (Session::exists('success')) {
+                echo '<div class="alert alert-success">' . Session::flash('success') . '</div>';
             }
-        ?>
 
+            if (Session::exists('alert-info')) {
+                echo '<div class="alert alert-info">' . Session::flash('alert-info') . '</div>';
+            }
+                if (Input::exists()) {
+
+                    if (!$validate->passed()) {
+                        echo '<div class="alert alert-danger"><ul>';
+                        foreach ($validate->errors() as $error) {
+                            echo '<li>' . $error . '</li>';
+                        }
+                        echo '</ul></div>';
+                    }
+
+                }
+        ?>
 
     	<div class="form-group">
           <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?php echo Input::get('email')?>">

@@ -23,11 +23,7 @@ if (Input::exists()) {
                 Redirect::to('changepassword.php');
                 die();
             }
-        } /*else {
-            foreach ($validate->errors() as $error) {
-                echo $error . '<br>';
-            }
-        }*/
+        }
     }
 }
 ?>
@@ -44,13 +40,11 @@ if (Input::exists()) {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-  
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">User Management</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -87,22 +81,12 @@ if (Input::exists()) {
 
       </div>
     </nav>
-
    <div class="container">
      <div class="row">
        <div class="col-md-8">
          <h1>Изменить пароль</h1>
 
-<!--         <div class="alert alert-success">Пароль обновлен</div>-->
-<!--         -->
-<!--         <div class="alert alert-danger">-->
-<!--           <ul>-->
-<!--             <li>Ошибка валидации</li>-->
-<!--           </ul>-->
-<!--         </div>-->
-
            <?php
-
            if (Session::exists('alert-success')) {
                echo '<div class="alert alert-success">' . Session::flash('alert-success') . '</div>';
            }
@@ -144,8 +128,6 @@ if (Input::exists()) {
              <button class="btn btn-warning">Изменить</button>
            </div>
          </form>
-
-
        </div>
      </div>
    </div>

@@ -19,10 +19,7 @@ $GLOBALS['config'] = [ /* Глобальный массив конфигурац
         'host' => 'localhost',
         'username' => 'root',
         'password' => 'root',
-        'database' => 'marlin_diplom_project',
-        'something' => [
-            'no' => 'yes'
-        ]
+        'database' => 'marlin_diplom_project'
     ],
 
     'session' => [
